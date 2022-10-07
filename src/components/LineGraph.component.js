@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import React from 'react';
 
-function Graph() {
+function LineGraph() {
   <Wrapper>Graph</Wrapper>;
 }
 
-export default Graph;
+export default LineGraph;
 
 const Wrapper = styled.div``;
