@@ -1,12 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import Chart from 'chart.js/auto';
-import { CategoryScale } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-Chart.register(CategoryScale);
 
-export const HumidityGraph = ({ channelData, feedData, zoom }) => {
+export const HumidityGraph = ({ channelData, feedData, options }) => {
   const [graphData, setGraphData] = useState();
+  const chartRef = useRef();
 
   useEffect(() => {
     if (feedData)
@@ -24,6 +22,13 @@ export const HumidityGraph = ({ channelData, feedData, zoom }) => {
   }, [channelData, feedData]);
 
   if (graphData) {
-    return <Line data={graphData} options={zoom} />;
+    return (
+      <Fragment>
+        <Line ref={chartRef} data={graphData} options={options} />
+        <button onClick={() => chartRef.current.zoom(1.1)}>확대지롱</button>
+        <button onClick={() => chartRef.current.zoom(0.9)}>축소지롱</button>
+        <button onClick={() => chartRef.current.resetZoom()}>초기화지롱</button>
+      </Fragment>
+    );
   }
 };

@@ -1,15 +1,20 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Calendar, HumidityGraph, PressureGraph, TemperatureGraph } from '.';
-import zoomPlugin, { resetZoom, zoomScale, zoom } from 'chartjs-plugin-zoom';
 import Chart from 'chart.js/auto';
+import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
 
 export const GraphDashboard = () => {
   const [selectedDate, setSelectedDate] = useState(
     new Date().toISOString().replace('T', ' ').substring(0, 10)
   );
-  const [endDate, setEndDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(
+    new Date(+new Date() + 24 * 60 * 60 * 1000)
+      .toISOString()
+      .replace('T', ' ')
+      .substring(0, 10)
+  );
   const [channelData, setChannelData] = useState();
   const [feedData, setFeedData] = useState();
   const CHANNEL_ID = '1348864';
@@ -17,7 +22,7 @@ export const GraphDashboard = () => {
 
   const request = async () => {
     const res = await fetch(
-      `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?api_key=${API_KEY}&start=${selectedDate}`
+      `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?api_key=${API_KEY}&start=${selectedDate}&end=${endDate}`
     );
     const json = await res.json();
     setChannelData(json.channel);
@@ -28,7 +33,7 @@ export const GraphDashboard = () => {
     request();
   }, [selectedDate]);
 
-  const zoomInOut = {
+  const options = {
     plugins: {
       zoom: {
         pan: {
@@ -52,22 +57,21 @@ export const GraphDashboard = () => {
 
   return (
     <Fragment>
-      <Calendar setSelectedDate={setSelectedDate} />
+      <Calendar setSelectedDate={setSelectedDate} setEndDate={setEndDate} />
       <TemperatureGraph
         channelData={channelData}
         feedData={feedData}
-        zoomInOut={zoomInOut}
+        options={options}
       />
-
       <HumidityGraph
         channelData={channelData}
         feedData={feedData}
-        zoomInOut={zoomInOut}
+        options={options}
       />
       <PressureGraph
         channelData={channelData}
         feedData={feedData}
-        zoomInOut={zoomInOut}
+        options={options}
       />
     </Fragment>
   );
