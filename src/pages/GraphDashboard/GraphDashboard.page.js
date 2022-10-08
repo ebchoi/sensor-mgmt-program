@@ -1,6 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Calendar, HumidityGraph, PressureGraph, TemperatureGraph } from '.';
+import zoomPlugin, { resetZoom } from 'chartjs-plugin-zoom';
+import Chart from 'chart.js/auto';
+Chart.register(zoomPlugin);
 
 export const GraphDashboard = () => {
   const [selectedDate, setSelectedDate] = useState(
@@ -25,12 +28,40 @@ export const GraphDashboard = () => {
     request();
   }, [selectedDate]);
 
+  const zoom = {
+    plugins: {
+      zoom: {
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true,
+          },
+          mode: 'xy',
+        },
+      },
+    },
+  };
+
   return (
     <Fragment>
       <Calendar setSelectedDate={setSelectedDate} />
-      <TemperatureGraph channelData={channelData} feedData={feedData} />
-      <HumidityGraph channelData={channelData} feedData={feedData} />
-      <PressureGraph channelData={channelData} feedData={feedData} />
+      <TemperatureGraph
+        channelData={channelData}
+        feedData={feedData}
+        zoom={zoom}
+      />
+      <HumidityGraph
+        channelData={channelData}
+        feedData={feedData}
+        zoom={zoom}
+      />
+      <PressureGraph
+        channelData={channelData}
+        feedData={feedData}
+        zoom={zoom}
+      />
     </Fragment>
   );
 };
