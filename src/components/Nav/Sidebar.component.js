@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MdSensors } from 'react-icons/md';
 import { RiUmbrellaFill } from 'react-icons/ri';
 
-export const Nav = () => {
+export const Sidebar = () => {
   const MENU_DATA = [
     {
       menu_id: 1,
@@ -20,18 +20,47 @@ export const Nav = () => {
   ];
 
   return (
-    <SidebarMenuList>
-      {MENU_DATA.map((Menu, index) => {
-        return (
-          <SidebarMenuLink to={Menu.URL} key={index}>
-            {Menu.icon}
-            <span>{Menu.title}</span>
-          </SidebarMenuLink>
-        );
-      })}
-    </SidebarMenuList>
+    <SidebarWrapper>
+      <SidebarTitle>
+        <h1>TEAM 06</h1>
+      </SidebarTitle>
+      <SidebarMenuList>
+        {MENU_DATA.map((Menu, index) => {
+          return (
+            <SidebarMenuLink to={Menu.URL} key={index}>
+              {Menu.icon}
+              <span>{Menu.title}</span>
+            </SidebarMenuLink>
+          );
+        })}
+      </SidebarMenuList>
+    </SidebarWrapper>
   );
 };
+
+const SidebarWrapper = styled.header`
+  position: sticky;
+  top: 0;
+  width: 228px;
+  height: 100vh;
+  z-index: 20;
+  background-color: #2e2e2e;
+`;
+
+const SidebarTitle = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 64px;
+  padding: 16px;
+  border-bottom: 2px solid #e2e2e2;
+
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+`;
 
 const SidebarMenuList = styled.div`
   padding: 16px;
