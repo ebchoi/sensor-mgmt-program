@@ -1,10 +1,10 @@
 import { Fragment, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 import { BsHouseDoorFill } from 'react-icons/bs';
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
 
-export const Header = ({ open }) => {
-  const navigate = useNavigate();
+export const Breadcrumbs = () => {
   const location = useLocation();
 
   const [headerTitle, setHeaderTitle] = useState([]);
@@ -15,7 +15,7 @@ export const Header = ({ open }) => {
 
   const makeHeaderTitle = headerTitle => {
     if (headerTitle[0] === '') {
-      headerTitle[0] = 'home';
+      headerTitle[0] = 'Sensor List';
     }
 
     return headerTitle.map((item, index) => {
@@ -29,27 +29,34 @@ export const Header = ({ open }) => {
   };
 
   useEffect(() => {
-    let headerArray = decodeURI(location.pathname).split('/');
+    let headerArray = location.pathname.split('/');
     headerArray.shift();
-    headerArray.splice(2);
     setHeaderTitle(headerArray);
   }, [location]);
 
   return (
-    <header
-      className={`${
-        open ? 'pl-56' : 'pl-24 '
-      } box-border fixed w-full bg-achromatic-bg_paper z-10 duration-300 border-b-2 border-blue-center_border`}
-    >
-      <div className="px-8">
-        <div className="flex items-center h-16">
-          <BsHouseDoorFill
-            className="text-blue text-2xl cursor-pointer"
-            onClick={() => navigate('/')}
-          />
-          {makeHeaderTitle(headerTitle)}
-        </div>
-      </div>
-    </header>
+    <BreadcrumbsWrapper>
+      <HouseIcon />
+      {makeHeaderTitle(headerTitle)}
+    </BreadcrumbsWrapper>
   );
 };
+
+const BreadcrumbsWrapper = styled.div`
+  box-sizing: border-box;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  width: 100%;
+  height: 64px;
+  padding: 0 28px;
+  gap: 8px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #e2e2e2;
+`;
+
+const HouseIcon = styled(BsHouseDoorFill)`
+  font-size: 24px;
+  color: #2e2e2e;
+`;
