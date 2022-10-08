@@ -19,9 +19,7 @@ export const SensorTable = ({ sensorList }) => {
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('calories');
-  const [selected, setSelected] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const isSelected = name => selected.indexOf(name) !== -1;
 
   /**
    * mui table용 바디셀 초기화 함수
