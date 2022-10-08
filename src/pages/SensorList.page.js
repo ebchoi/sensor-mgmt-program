@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { SensorTable } from '../components/SensorTable.component';
 
-export const SensorList = () => {
+export function SensorList() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
@@ -39,7 +39,9 @@ export const SensorList = () => {
       <SensorTable sensorList={filteredData.length ? filteredData : data} />
     </SensorListWrapper>
   );
-};
+}
+
+export default SensorList;
 
 const SensorListWrapper = styled.section`
   display: flex;
