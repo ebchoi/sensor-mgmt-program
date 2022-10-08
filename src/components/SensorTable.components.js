@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
 
-function Table() {
+export const SensorTable = () => {
   <Wrapper>Table</Wrapper>;
-}
-
-export default Table;
+};
 
 const Wrapper = styled.div``;
