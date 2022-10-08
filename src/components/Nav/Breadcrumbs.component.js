@@ -7,37 +7,36 @@ import { MdOutlineArrowForwardIos } from 'react-icons/md';
 export const Breadcrumbs = () => {
   const location = useLocation();
 
-  const [headerTitle, setHeaderTitle] = useState([]);
+  const [headerTitle, setHeaderTitle] = useState();
 
   const capitalizer = str => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
   const makeHeaderTitle = headerTitle => {
-    if (headerTitle[0] === '') {
-      headerTitle[0] = 'Sensor List';
+    let headerValue = headerTitle.replace('_', ' ').slice(1);
+    console.log(headerValue);
+    if (headerValue === '') {
+      headerValue = 'Sensor list';
     }
 
-    return headerTitle.map((item, index) => {
-      return (
-        <Fragment key={index}>
-          <MdOutlineArrowForwardIos className="text-blue-center_border mx-2" />
-          <span>{`${capitalizer(item)}`}</span>
-        </Fragment>
-      );
-    });
+    return (
+      <Fragment>
+        <MdOutlineArrowForwardIos className="text-blue-center_border mx-2" />
+        <span>{`${capitalizer(headerValue)}`}</span>
+      </Fragment>
+    );
   };
 
   useEffect(() => {
-    let headerArray = location.pathname.split('/');
-    headerArray.shift();
-    setHeaderTitle(headerArray);
+    let headerValue = location.pathname;
+    setHeaderTitle(headerValue);
   }, [location]);
 
   return (
     <BreadcrumbsWrapper>
       <HouseIcon />
-      {makeHeaderTitle(headerTitle)}
+      {headerTitle && makeHeaderTitle(headerTitle)}
     </BreadcrumbsWrapper>
   );
 };

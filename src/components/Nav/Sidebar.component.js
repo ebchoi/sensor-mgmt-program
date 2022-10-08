@@ -14,7 +14,7 @@ export const Sidebar = () => {
     {
       menu_id: 2,
       title: 'Weather Info',
-      URL: '/dashboard',
+      URL: '/weather_info',
       icon: <RiUmbrellaFill />,
     },
   ];
@@ -41,6 +41,7 @@ export const Sidebar = () => {
 const SidebarWrapper = styled.header`
   position: sticky;
   top: 0;
+  min-width: 228px;
   width: 228px;
   height: 100vh;
   z-index: 20;
