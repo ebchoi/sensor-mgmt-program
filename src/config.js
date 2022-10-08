@@ -1,3 +1,4 @@
+const SENSOR_LIST = process.env.REACT_APP_SENSOR_LIST;
 const API_KEY = process.env.REACT_APP_API_KEY;
 const CHANNEL_ID = process.env.REACT_APP_API_CHANNEL_ID;
 
@@ -6,9 +7,10 @@ const BASE_URL_CHANNEL = `${process.env.REACT_APP_BASE_URL}/${CHANNEL_ID}`;
 
 const GET_GRAPH_RECENT_DATA_API = `${BASE_URL_CHANNEL}/feeds.json?api_key=${API_KEY}`;
 const GET_GRAPH_SELECTED_DATE_DATA_API = `${BASE_URL_CHANNEL}/feeds.json?api_key=${API_KEY}`;
-const GET_GRAPH_CSV_EXPORT_API = `${BASE_URL_CHANNEL}/feeds.csv?start=2011-11-11%2010:10:10&end=2011-11-11%2011:11:11`;
+const GET_GRAPH_CSV_EXPORT_API = `${BASE_URL_CHANNEL}/feeds.csv?api_key=${API_KEY}&start=2022-10-01%2000:00:00&end=2022-10-02%2000:00:00`;
 
 export {
+  SENSOR_LIST,
   API_KEY,
   CHANNEL_ID,
   BASE_URL,
