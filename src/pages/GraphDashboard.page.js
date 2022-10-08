@@ -1,4 +1,4 @@
-function Graph() {
+function GraphDashboard() {
   return (
     <>
       <h1>Graph</h1>
@@ -7,4 +7,4 @@ function Graph() {
   );
 }
 
-export default Graph;
+export default GraphDashboard;
