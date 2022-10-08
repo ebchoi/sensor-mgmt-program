@@ -27,5 +27,6 @@ const ContentsWrapper = styled.div`
 
 const ContentsArea = styled.main`
   margin: 64px 0 0;
+  width: fit-content;
   padding: 28px;
 `;

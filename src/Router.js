@@ -9,7 +9,7 @@ function Router() {
       <Routes>
         <Route element={<Nav />}>
           <Route path="/" element={<SensorList />} />
-          <Route path="/dashboard" element={<GraphDashboard />} />
+          <Route path="/weather_info" element={<GraphDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>
