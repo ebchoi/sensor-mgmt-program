@@ -3,9 +3,15 @@ import styled from 'styled-components';
 import Chart from 'chart.js/auto';
 import { CategoryScale } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-Chart.register(CategoryScale);
+import * as zoom from 'chartjs-plugin-zoom';
+// Chart.register(CategoryScale);
 
-export const TemperatureGraph = ({ channelData, feedData, zoom }) => {
+export const TemperatureGraph = ({
+  channelData,
+  feedData,
+  zoomInOut,
+  zoomHandler,
+}) => {
   const [graphData, setGraphData] = useState();
 
   useEffect(() => {
@@ -24,6 +30,6 @@ export const TemperatureGraph = ({ channelData, feedData, zoom }) => {
   }, [channelData, feedData]);
 
   if (graphData) {
-    return <Line data={graphData} options={zoom} />;
+    return <Line data={graphData} options={zoomInOut} />;
   }
 };
