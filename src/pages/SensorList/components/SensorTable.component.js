@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import {
   Table,
@@ -11,58 +11,8 @@ import {
   tableRowClasses,
 } from '@mui/material';
 
-const headCells = [
-  {
-    id: 'thingName',
-    label: 'Sensor ID',
-  },
-  {
-    id: 'batLvl',
-    label: 'Bat.(%)',
-  },
-  {
-    id: 'connAt',
-    label: 'Connected at',
-  },
-  {
-    id: 'disconnAt',
-    label: 'Disconnected at',
-  },
-  {
-    id: 'disconnReason',
-    label: 'Reason',
-  },
-  {
-    id: 'connCardNum',
-    label: 'Card No.',
-  },
-  {
-    id: 'connGW',
-    label: 'Gateway',
-  },
-  {
-    id: 'rawSentCnt',
-    label: 'Raw sent',
-  },
-  {
-    id: 'remainData',
-    label: 'Remain',
-  },
-  {
-    id: 'rssi',
-    label: 'RSSI',
-  },
-  {
-    id: 'fwVer',
-    label: 'F/W ver.',
-  },
-  {
-    id: 'hwVer',
-    label: 'H/W ver.',
-  },
-];
-
 export const SensorTable = ({ sensorList }) => {
+  const [alertColor, setAlertColor] = useState('red');
   const createData = (
     thingName,
     batLvl,
@@ -109,6 +59,57 @@ export const SensorTable = ({ sensorList }) => {
       shadow.hwVer
     )
   );
+
+  const headCells = [
+    {
+      id: 'thingName',
+      label: 'Sensor ID',
+    },
+    {
+      id: 'batLvl',
+      label: 'Bat.(%)',
+    },
+    {
+      id: 'connAt',
+      label: 'Connected at',
+    },
+    {
+      id: 'disconnAt',
+      label: 'Disconnected at',
+    },
+    {
+      id: 'disconnReason',
+      label: 'Reason',
+    },
+    {
+      id: 'connCardNum',
+      label: 'Card No.',
+    },
+    {
+      id: 'connGW',
+      label: 'Gateway',
+    },
+    {
+      id: 'rawSentCnt',
+      label: 'Raw sent',
+    },
+    {
+      id: 'remainData',
+      label: 'Remain',
+    },
+    {
+      id: 'rssi',
+      label: 'RSSI',
+    },
+    {
+      id: 'fwVer',
+      label: 'F/W ver.',
+    },
+    {
+      id: 'hwVer',
+      label: 'H/W ver.',
+    },
+  ];
 
   if (!sensorList) return <div>로딩중입니다.</div>;
 
