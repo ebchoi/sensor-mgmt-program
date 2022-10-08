@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { SensorTable } from '../components/SensorTable.component';
+import { SensorTable } from './components/SensorTable.component';
 
 export function SensorList() {
   const [data, setData] = useState([]);
