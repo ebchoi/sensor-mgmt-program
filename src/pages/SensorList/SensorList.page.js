@@ -23,8 +23,6 @@ export const SensorList = () => {
     }
   };
 
-  console.log(data);
-
   useEffect(() => {
     request();
   }, []);
