@@ -23,8 +23,6 @@ export const SensorList = () => {
     }
   };
 
-  console.log(data);
-
   useEffect(() => {
     request();
   }, []);
@@ -54,7 +52,7 @@ const SensorListWrapper = styled.section`
 const SensorListTitle = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 12px 0 0;
+  padding: 0 0 12px;
   font-weight: bold;
   font-size: 28px;
 `;
