@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SensorList from './pages/SensorList.page';
+import { SensorList } from './pages/SensorList.page';
 import GraphDashboard from './pages/GraphDashboard.page';
 
 function Router() {
