@@ -5,7 +5,7 @@ import { CategoryScale } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 Chart.register(CategoryScale);
 
-export const HumidityGraph = ({ channelData, feedData }) => {
+export const HumidityGraph = ({ channelData, feedData, zoom }) => {
   const [graphData, setGraphData] = useState();
 
   useEffect(() => {
@@ -24,6 +24,6 @@ export const HumidityGraph = ({ channelData, feedData }) => {
   }, [channelData, feedData]);
 
   if (graphData) {
-    return <Line data={graphData} />;
+    return <Line data={graphData} options={zoom} />;
   }
 };
