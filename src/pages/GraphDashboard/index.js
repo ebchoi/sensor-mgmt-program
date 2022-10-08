@@ -1,1 +1,1 @@
-//export something
+export * from './components';
