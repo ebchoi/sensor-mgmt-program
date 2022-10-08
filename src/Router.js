@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Sidebar } from './pages/components/Sidebar/Sidebar.component';
+import { Sidebar } from './components/Sidebar/Sidebar.component';
 import { SensorList } from './pages/SensorList/SensorList.page';
 import { GraphDashboard } from './pages/GraphDashboard/GraphDashboard.page';
 
