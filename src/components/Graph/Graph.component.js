@@ -101,7 +101,7 @@ export const Graph = ({ field, channelData, feedData }) => {
 };
 
 const Wrapper = styled.div`
-  width: 90vw;
+  width: 95vw;
   height: fit-content;
 
   ${device.tablet} {
@@ -120,6 +120,7 @@ const ButtonWrapper = styled.div`
 
 const StyledButton = styled.button`
   width: 15%;
+  min-width: 60px;
   margin: 50px 10px 5px 10px;
   padding: 5px 10px;
   border-radius: 50px;
