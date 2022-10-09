@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { GET_GRAPH_DATA_API } from '../config';
 import { Calendar, ExportButton } from '../components/index.components';
