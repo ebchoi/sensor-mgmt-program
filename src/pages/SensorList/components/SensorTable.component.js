@@ -273,7 +273,13 @@ export const SensorTable = ({ sensorList }) => {
                   <TableRow hover key={row.name}>
                     <StyledTableCell>{index}</StyledTableCell>
                     <StyledTableCell>{row.thingName}</StyledTableCell>
-                    <StyledTableCell>{row.batLvl}</StyledTableCell>
+                    <StyledTableCell
+                      sx={{
+                        color: row.batLvl < 20 && '#FF0000',
+                      }}
+                    >
+                      {row.batLvl}
+                    </StyledTableCell>
                     <StyledTableCell>{row.connAt}</StyledTableCell>
                     <StyledTableCell>{row.disconnAt}</StyledTableCell>
                     <StyledTableCell>{row.disconnReason}</StyledTableCell>
