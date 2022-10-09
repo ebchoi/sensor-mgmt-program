@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import styled from 'styled-components';
+import { GET_GRAPH_DATA_API } from '../../config';
 import { Calendar, HumidityGraph, PressureGraph, TemperatureGraph } from '.';
 import Chart from 'chart.js/auto';
 import zoomPlugin from 'chartjs-plugin-zoom';
@@ -17,12 +17,10 @@ export const GraphDashboard = () => {
   );
   const [channelData, setChannelData] = useState();
   const [feedData, setFeedData] = useState();
-  const CHANNEL_ID = '1348864';
-  const API_KEY = '6SKW0U97IPV2QQV9';
 
   const request = async () => {
     const res = await fetch(
-      `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?api_key=${API_KEY}&start=${selectedDate}&end=${endDate}`
+      `${GET_GRAPH_DATA_API}&start=${selectedDate}&end=${endDate}`
     );
     const json = await res.json();
     setChannelData(json.channel);
