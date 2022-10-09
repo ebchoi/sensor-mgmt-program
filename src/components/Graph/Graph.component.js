@@ -1,6 +1,7 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Line } from 'react-chartjs-2';
+import { device } from '../../styles/Theme';
 
 export const Graph = ({ field, channelData, feedData }) => {
   const [graphData, setGraphData] = useState();
@@ -25,6 +26,9 @@ export const Graph = ({ field, channelData, feedData }) => {
 
     if (channelData) {
       setOptions({
+        responsive: true,
+        aspectRatio: 1,
+        maintainAspectRatio: true,
         interactions: { axis: 'x' },
         plugins: {
           title: {
@@ -73,31 +77,50 @@ export const Graph = ({ field, channelData, feedData }) => {
 
   if (graphData) {
     return (
-      <Fragment>
+      <Wrapper>
         <Line
           key={channelData.id}
           ref={chartRef}
           data={graphData}
           options={options}
         />
-
-        <StyledButton onClick={() => chartRef.current.zoom(1.1)}>
-          +{' '}
-        </StyledButton>
-        <StyledButton onClick={() => chartRef.current.zoom(0.9)}>
-          -
-        </StyledButton>
-        <StyledButton onClick={() => chartRef.current.resetZoom()}>
-          초기화
-        </StyledButton>
-      </Fragment>
+        <ButtonWrapper>
+          <StyledButton onClick={() => chartRef.current.zoom(1.1)}>
+            +{' '}
+          </StyledButton>
+          <StyledButton onClick={() => chartRef.current.zoom(0.9)}>
+            -
+          </StyledButton>
+          <StyledButton onClick={() => chartRef.current.resetZoom()}>
+            초기화
+          </StyledButton>
+        </ButtonWrapper>
+      </Wrapper>
     );
   }
 };
 
+const Wrapper = styled.div`
+  width: 90vw;
+  height: fit-content;
+
+  ${device.tablet} {
+    width: 50%;
+  }
+
+  ${device.desktop} {
+    width: 33%;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const StyledButton = styled.button`
   width: 15%;
-  margin: 10px;
+  margin: 50px 10px 5px 10px;
   padding: 5px 10px;
   border-radius: 50px;
   background-color: #216ba5;

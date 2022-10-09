@@ -34,23 +34,31 @@ export const GraphDashboard = () => {
   }, [selectedDate]);
 
   return (
-    <Fragment>
+    <Container>
       <Wrapper>
         <Calendar setSelectedDate={setSelectedDate} setEndDate={setEndDate} />
         <ExportButton selectedDate={selectedDate} endDate={endDate} />
       </Wrapper>
-      <Graphs
-        channelData={channelData}
-        feedData={feedData}
-        selectedDate={selectedDate}
-        endDate={endDate}
-      />
-    </Fragment>
+      <Wrapper>
+        <Graphs
+          channelData={channelData}
+          feedData={feedData}
+          selectedDate={selectedDate}
+          endDate={endDate}
+        />
+      </Wrapper>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
 `;
