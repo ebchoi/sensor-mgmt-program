@@ -24,4 +24,5 @@ const Button = styled.a`
   border: 2px solid gray;
   text-align: center;
   border-radius: 50px;
+  text-decoration: none;
 `;
