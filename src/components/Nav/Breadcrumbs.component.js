@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { BsHouseDoorFill } from 'react-icons/bs';
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
-import { device } from '../../styles/Theme';
 
 export const Breadcrumbs = () => {
   const location = useLocation();

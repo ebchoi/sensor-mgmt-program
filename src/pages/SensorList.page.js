@@ -8,9 +8,7 @@ export const SensorList = () => {
 
   const request = async () => {
     try {
-      const res = await fetch(
-        'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a1db46b3-41b2-4a81-b7c6-5f85e7842cca/sensor-info-list.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221008%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221008T084346Z&X-Amz-Expires=86400&X-Amz-Signature=2eacc7000f64268879d2e0429bd64d8bdaad634180bd96e7e523d067ec2d127b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22sensor-info-list.json%22&x-id=GetObject'
-      );
+      const res = await fetch(process.env.REACT_APP_SENSOR_LIST);
       const result = await res.json();
       if (result.message === 'Value_Error') {
         throw Error('Value_Error');
