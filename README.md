@@ -63,12 +63,12 @@
 - Material-UI 라이브러리를 통한 목록 생성, map을 통하여 데이터 조회, 조회 데이터 개수 보여주기 구현
 - map, sort를 활용한 오름차순 내림차순 구현, 페이지네이션 구현
 - 조건부 css통한 배터리 레벨에 따른 글자색 변화, hover를 통한 셀 배경색 변화
-    
-    ![Screen Shot 2022-10-10 at 2.06.06 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/116acb6f-5b44-4bd1-9f80-dc0a6dd7d482/Screen_Shot_2022-10-10_at_2.06.06_AM.png)
-    
-    ![Screen Shot 2022-10-10 at 2.06.12 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/78c0bb2e-9527-4c9b-a64a-7dba40f2e410/Screen_Shot_2022-10-10_at_2.06.12_AM.png)
-    
-    ![Screen Shot 2022-10-10 at 2.11.03 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/858b313d-b26e-4371-a3c8-8092dae503fd/Screen_Shot_2022-10-10_at_2.11.03_AM.png)
+
+<img width="722" alt="Screen Shot 2022-10-10 at 2 06 06 AM" src="https://user-images.githubusercontent.com/100172541/194771799-75362a07-5f54-4bc8-ba17-32329e718586.png">
+<img width="414" alt="Screen Shot 2022-10-10 at 2 06 12 AM" src="https://user-images.githubusercontent.com/100172541/194771809-0aca1e6b-2f59-4133-af60-657f6f4a67cb.png">
+<img width="606" alt="Screen Shot 2022-10-10 at 2 11 03 AM" src="https://user-images.githubusercontent.com/100172541/194771814-77076639-0850-4951-b587-f6a9e2ca0735.png">
+
+
     
 
 ### 그래프 대시 보드
@@ -77,8 +77,8 @@
 - useRef를 활용하여 DOM조작을 통한 확대 축소 버튼 추가
 - DatePicker를 사용한 달력 구현. 선택한 날짜에 해당하는 데이터 조회
     
-    ![Screen Shot 2022-10-10 at 2.02.27 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fe2269b8-7da1-4956-a739-91650531926f/Screen_Shot_2022-10-10_at_2.02.27_AM.png)
+<img width="583" alt="Screen Shot 2022-10-10 at 2 02 27 AM" src="https://user-images.githubusercontent.com/100172541/194771833-a7dc2692-ee4d-43b3-b298-1d1613ffa1f0.png">
+<img width="379" alt="Screen Shot 2022-10-10 at 2 05 29 AM" src="https://user-images.githubusercontent.com/100172541/194771836-2104122c-5f14-4d84-8f52-5a3b578c7b5d.png">
+<img width="573" alt="Screen Shot 2022-10-10 at 2 05 36 AM" src="https://user-images.githubusercontent.com/100172541/194771843-51706f32-47ff-44ea-9e18-9918cc7beceb.png">
+
     
-    ![Screen Shot 2022-10-10 at 2.05.29 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e5575d0e-a330-4d04-87eb-92775df7b4b6/Screen_Shot_2022-10-10_at_2.05.29_AM.png)
-    
-    ![Screen Shot 2022-10-10 at 2.05.36 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6c8bd107-bc32-4c9d-a359-fc35fdaf38fa/Screen_Shot_2022-10-10_at_2.05.36_AM.png)
