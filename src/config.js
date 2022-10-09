@@ -5,7 +5,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 const BASE_URL_CHANNEL = `${process.env.REACT_APP_BASE_URL}/${CHANNEL_ID}`;
 
 const GET_GRAPH_DATA_API = `${BASE_URL_CHANNEL}/feeds.json?api_key=${API_KEY}`;
-const GET_GRAPH_CSV_EXPORT_API = `${BASE_URL_CHANNEL}/feeds.csv?start=2011-11-11%2010:10:10&end=2011-11-11%2011:11:11`;
+const GET_GRAPH_CSV_EXPORT_API = `${BASE_URL_CHANNEL}/feeds.csv?api_key=${API_KEY}`;
 const GET_SENSOR_LIST_API = process.env.REACT_APP_SENSOR_LIST;
 
 export {

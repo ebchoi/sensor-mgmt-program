@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { GET_GRAPH_DATA_API } from '../config';
-import { Calendar } from '../components/Graph/Calendar.component';
+import { Calendar, ExportButton } from '../components/index.components';
 import { Graphs } from '../containers/index.containers';
 import Chart from 'chart.js/auto';
 import zoomPlugin from 'chartjs-plugin-zoom';
@@ -34,7 +35,10 @@ export const GraphDashboard = () => {
 
   return (
     <Fragment>
-      <Calendar setSelectedDate={setSelectedDate} setEndDate={setEndDate} />
+      <Wrapper>
+        <Calendar setSelectedDate={setSelectedDate} setEndDate={setEndDate} />
+        <ExportButton selectedDate={selectedDate} endDate={endDate} />
+      </Wrapper>
       <Graphs
         channelData={channelData}
         feedData={feedData}
@@ -44,3 +48,8 @@ export const GraphDashboard = () => {
     </Fragment>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
