@@ -15,7 +15,7 @@ export const Breadcrumbs = () => {
 
   const makeHeaderTitle = headerTitle => {
     let headerValue = headerTitle.replace('_', ' ').slice(1);
-    console.log(headerValue);
+
     if (headerValue === '') {
       headerValue = 'Sensor list';
     }

@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { Calendar, HumidityGraph, PressureGraph, TemperatureGraph } from '.';
+import { GET_GRAPH_DATA_API } from '../config';
+import { Calendar } from '../components/Graph/Calendar.component';
+import { Graphs } from '../containers/index.containers';
 import Chart from 'chart.js/auto';
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
@@ -17,12 +18,10 @@ export const GraphDashboard = () => {
   );
   const [channelData, setChannelData] = useState();
   const [feedData, setFeedData] = useState();
-  const CHANNEL_ID = '1348864';
-  const API_KEY = '6SKW0U97IPV2QQV9';
 
   const request = async () => {
     const res = await fetch(
-      `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?api_key=${API_KEY}&start=${selectedDate}&end=${endDate}`
+      `${GET_GRAPH_DATA_API}&start=${selectedDate}&end=${endDate}`
     );
     const json = await res.json();
     setChannelData(json.channel);
@@ -33,45 +32,14 @@ export const GraphDashboard = () => {
     request();
   }, [selectedDate]);
 
-  const options = {
-    plugins: {
-      zoom: {
-        pan: {
-          enabled: true,
-          mode: 'x',
-          threshold: 10,
-        },
-        zoom: {
-          wheel: {
-            enabled: true,
-            speed: 0.1,
-          },
-          pinch: {
-            enabled: true,
-          },
-          mode: 'xy',
-        },
-      },
-    },
-  };
-
   return (
     <Fragment>
       <Calendar setSelectedDate={setSelectedDate} setEndDate={setEndDate} />
-      <TemperatureGraph
+      <Graphs
         channelData={channelData}
         feedData={feedData}
-        options={options}
-      />
-      <HumidityGraph
-        channelData={channelData}
-        feedData={feedData}
-        options={options}
-      />
-      <PressureGraph
-        channelData={channelData}
-        feedData={feedData}
-        options={options}
+        selectedDate={selectedDate}
+        endDate={endDate}
       />
     </Fragment>
   );

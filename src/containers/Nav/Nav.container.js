@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import { Breadcrumbs, Sidebar } from './index.component';
+import { Breadcrumbs, Sidebar } from '../../components/index.components';
 
 export const Nav = () => {
   return (
@@ -21,6 +21,7 @@ const NavContainer = styled.div`
 `;
 
 const ContentsWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
