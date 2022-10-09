@@ -1,13 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { SensorList } from './pages/SensorList.page';
-import GraphDashboard from './pages/GraphDashboard.page';
+import { Nav } from './components/Nav/Nav.component';
+import { SensorList } from './pages/SensorList/SensorList.page';
+import { GraphDashboard } from './pages/GraphDashboard/GraphDashboard.page';
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SensorList />} />
-        <Route path="/dashboard" element={<GraphDashboard />} />
+        <Route element={<Nav />}>
+          <Route path="/" element={<SensorList />} />
+          <Route path="/weather_info" element={<GraphDashboard />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
