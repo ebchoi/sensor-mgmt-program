@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
+import { deviceSizes, device } from '../../styles/Theme';
 import { Breadcrumbs, Sidebar } from '../../components/index.components';
 
 export const Nav = () => {
@@ -18,16 +19,27 @@ export const Nav = () => {
 
 const NavContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 100vw;
+  ${device.desktop} {
+    width: 100%;
+    margin-left: 228px;
+    flex-direction: row;
+  }
 `;
 
 const ContentsWrapper = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  min-width: ${deviceSizes.mobile};
+  ${device.desktop} {
+    width: calc(100% - 228px);
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const ContentsArea = styled.main`
   margin: 64px 0 0;
-  width: fit-content;
+  width: 100%;
   padding: 28px;
 `;

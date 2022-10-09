@@ -1,54 +1,26 @@
-import { Fragment } from 'react';
 import styled from 'styled-components';
 import { Graph } from '../../components/index.components';
 
 export const Graphs = ({ channelData, feedData }) => {
-  const options = {
-    plugins: {
-      zoom: {
-        pan: {
-          enabled: true,
-          mode: 'x',
-          threshold: 10,
-        },
-        zoom: {
-          wheel: {
-            enabled: true,
-            speed: 0.1,
-          },
-          pinch: {
-            enabled: true,
-          },
-          mode: 'xy',
-        },
-      },
-    },
-  };
-
   return (
-    <Fragment>
+    <Container>
       <TemperatureGraph
         field={1}
         channelData={channelData}
         feedData={feedData}
-        options={options}
       />
-      <HumidityGraph
-        field={2}
-        channelData={channelData}
-        feedData={feedData}
-        options={options}
-      />
-      <PressureGraph
-        field={3}
-        channelData={channelData}
-        s
-        feedData={feedData}
-        options={options}
-      />
-    </Fragment>
+      <HumidityGraph field={2} channelData={channelData} feedData={feedData} />
+      <PressureGraph field={3} channelData={channelData} feedData={feedData} />
+    </Container>
   );
 };
+
+const Container = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
 
 const TemperatureGraph = styled(Graph)``;
 

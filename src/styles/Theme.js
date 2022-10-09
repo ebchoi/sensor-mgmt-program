@@ -9,7 +9,7 @@ export const colors = {
   bodyGray: '#4B4E57',
 };
 
-const deviceSizes = {
+export const deviceSizes = {
   mobile: '375px',
   tablet: '768px',
   desktop: '1024px',
