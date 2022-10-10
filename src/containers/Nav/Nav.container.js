@@ -21,6 +21,12 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
+  max-width: fit-content;
+  min-width: ${deviceSizes.mobile};
+
+  ${device.tablet} {
+    width: 100vw;
+  }
   ${device.desktop} {
     width: 100%;
     margin-left: 228px;

@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { BsHouseDoorFill } from 'react-icons/bs';
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
+import { device } from '../../styles/Theme';
 
 export const Breadcrumbs = () => {
   const location = useLocation();
@@ -43,7 +44,8 @@ export const Breadcrumbs = () => {
 
 const BreadcrumbsWrapper = styled.div`
   box-sizing: border-box;
-  position: fixed;
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   z-index: 10;
@@ -53,6 +55,10 @@ const BreadcrumbsWrapper = styled.div`
   gap: 8px;
   background-color: #ffffff;
   border-bottom: 2px solid #e2e2e2;
+
+  ${device.desktop} {
+    position: fixed;
+  } ;
 `;
 
 const HouseIcon = styled(BsHouseDoorFill)`

@@ -41,6 +41,8 @@ export const Sidebar = () => {
 
 const SidebarWrapper = styled.header`
   box-sizing: border-box;
+  position: sticky;
+  top: 0;
   width: 100vw;
   min-width: ${deviceSizes.mobile};
   height: 64px;
