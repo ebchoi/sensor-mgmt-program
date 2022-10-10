@@ -19,7 +19,7 @@ export const SensorTable = ({ sensorList }) => {
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('calories');
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   /**
    * mui table용 바디셀 초기화 함수
@@ -297,7 +297,7 @@ export const SensorTable = ({ sensorList }) => {
         </Table>
       </StyledTableContainer>
       <TablePagination
-        rowsPerPageOptions={[5, 10, 25]}
+        rowsPerPageOptions={[50, 10, 5]}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}
