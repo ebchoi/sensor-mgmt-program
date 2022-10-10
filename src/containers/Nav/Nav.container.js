@@ -38,7 +38,7 @@ const ContentsWrapper = styled.div`
   width: 100%;
   min-width: ${deviceSizes.mobile};
   ${device.desktop} {
-    width: calc(100% - 228px);
+    width: calc(100vw - 228px);
     display: flex;
     flex-direction: column;
   }
@@ -48,4 +48,7 @@ const ContentsArea = styled.main`
   margin: 64px 0 0;
   width: 100%;
   padding: 28px;
+  ${device.desktop} {
+    width: calc(100vw - 228px);
+  }
 `;
