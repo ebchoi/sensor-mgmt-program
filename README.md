@@ -6,7 +6,7 @@
 - 작업 기간 : 2022년 10월 7일 ~ 2022년 10월 10일
 - 참여 인원 : 4명 - 오창훈, 유관희, 이주리, 최은비(PO)
 - 기술 스택 : HTML5, React.js, Styled-components, MUI, Chart.js, Datepicker
-- 구현 사이트 : [devdoper.github.io](http://devdoper.github.io/)
+- 구현 사이트 : [https://famous-smakager-e24995.netlify.app/](https://famous-smakager-e24995.netlify.app/)
 
 ## 2. 팀원 역할 분할
 
