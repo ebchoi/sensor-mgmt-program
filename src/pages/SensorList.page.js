@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import SensorListData from '../data/data.json';
 import { SensorTable } from '../components/List/SensorTable.component';
 
 export const SensorList = () => {
@@ -15,7 +16,9 @@ export const SensorList = () => {
       } else {
         setData(result);
       }
-    } catch (error) {}
+    } catch (error) {
+      setData(SensorListData);
+    }
   };
 
   useEffect(() => {
